@@ -1,6 +1,0 @@
-<mat-form-field>
-  <input matInput placeholder="Search etsy" #search (keyup.enter)="searchkey=search.value; doSearch()">
-</mat-form-field>
-<a mat-button color="primary" href="http://localhost:3000/api/downloadCsvResult">{{downloadText}}</a>
-<mat-spinner *ngIf="isSearching" class="absCenter mat-spinner"></mat-spinner>
-
