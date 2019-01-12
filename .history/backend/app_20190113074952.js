@@ -28,6 +28,7 @@ app.route('/api/scrap-data')
  .get((req, res) => {
     const searchKey = req.query.searchkey;
     let url = "https://www.etsy.com/search?q=" + encodeURIComponent(searchKey);
+    console.log(url);
     rp(url)
         .then(function(html){
           const data = [];

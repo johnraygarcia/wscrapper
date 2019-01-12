@@ -26,8 +26,9 @@ app.route('/api/download-csv')
 
 app.route('/api/scrap-data')
  .get((req, res) => {
-    const searchKey = req.query.searchkey;
+    const searchKey = req.query.searchKey;
     let url = "https://www.etsy.com/search?q=" + encodeURIComponent(searchKey);
+
     rp(url)
         .then(function(html){
           const data = [];
