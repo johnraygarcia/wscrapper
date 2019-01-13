@@ -5,4 +5,5 @@ export interface SearchResult {
   rating: number;
   price: number;
   currency: string;
+  listingId: number;
 }

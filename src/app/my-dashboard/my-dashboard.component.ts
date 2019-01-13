@@ -27,11 +27,10 @@ export class MyDashboardComponent {
 
     this.uiService.isSearching().subscribe((isSearching) => {
       this.isSearching = isSearching;
-      console.log(isSearching, 'terst');
     });
   }
 
-  round(rating) {
+  roundOf(rating) {
     return Math.round(rating);
   }
 }

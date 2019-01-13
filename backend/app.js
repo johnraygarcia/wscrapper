@@ -4,7 +4,7 @@ const rp = require('request-promise');
 const cors = require('cors');
 const fs = require('fs');
 const Json2csvParser = require('json2csv').Parser;
-const fields = ['title', 'imgSrc', 'sellerName', 'rating', 'price', 'currency'];
+const fields = ['title', 'imgSrc', 'sellerName', 'rating', 'price', 'currency', 'listingId'];
 const json2csvParser = new Json2csvParser({ fields });
 const app = express();
 const csvFileLoc = './backend/temp/data.csv';
@@ -40,13 +40,15 @@ app.route('/api/scrap-data')
               let rating = $(mainSelector + ' input[name=rating]', html)[i].attribs.value;
               let price = $(mainSelector + ' .currency-value', html)[i].children[0].data.trim();
               let currency = $(mainSelector + ' .currency-symbol', html)[i].children[0].data.trim();
+              let listingId = $(mainSelector + ' .v2-listing-card', html)[i].attribs['data-listing-id'];
               data.push({
                 title: name,
                 imgSrc: imgSrc,
                 sellerName: sellerName,
                 rating: rating,
                 price: price,
-                currency: currency
+                currency: currency,
+                listingId: listingId
               });
           }
 
